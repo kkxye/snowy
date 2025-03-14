@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #FF7F50, #FFD700, #87CEEB);
+    position: relative;
+}
+
+.sun {
+    width: 30vh; /* 太阳更大 */
+    height: 30vh; /* 太阳更大 */
+    background: radial-gradient(circle, #FF4500, #FF8C00, #FFA500);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30vh; /* 初始位置在页面底部 */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: rise 10s linear forwards; /* 太阳升起速度 */
+    box-shadow: 0 0 50px 20px rgba(255, 69, 0, 0.5); /* 太阳光晕效果 */
+}
+
+@keyframes rise {
+    0% {
+        bottom: -30vh; /* 从底部开始升起 */
+    }
+    100% {
+        bottom: 70vh; /* 升到页面顶部附近 */
+    }
+}
+
+.welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10vh; /* 初始大小 */
+    color: rgba(255, 255, 255, 0); /* 初始透明 */
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* 文字阴影 */
+    animation: fadeInGrow 2s linear 10s forwards; /* 太阳升起后显示并变大 */
+}
+
+@keyframes fadeInGrow {
+    0% {
+        color: rgba(255, 255, 255, 0); /* 完全透明 */
+        font-size: 10vh; /* 初始大小 */
+    }
+    100% {
+        color: rgba(255, 255, 255, 1); /* 完全不透明 */
+        font-size: 20vh; /* 最终变大 */
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1); /* 阴影更明显 */
+    }
+}
+
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.snowflake {
+    position: absolute;
+    color: #FFFFFF;
+    font-size: 20px;
+    animation: fall linear infinite;
+    opacity: 0.8; /* 雪花更透明 */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
